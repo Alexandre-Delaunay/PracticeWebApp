@@ -10,6 +10,8 @@ namespace PracticeWebApp.Models
     public class Product
     {
         #region Public Members
+
+        [Key]
         public string CodeEdi { get; set; }
 
         public string Comment { get; set; }

@@ -11,8 +11,6 @@ namespace PracticeWebApp.Services
     {
         public Task<Prescription> Get(int id);
 
-        public Task<string> IsValid(Prescription prescription);
-
         public Task<Prescription> AskPrescription(AskPrescriptionViewModel AskPrescritpionViewModel);
 
         public Task<string> GetAuditTrail(string referenceMimosa);

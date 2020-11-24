@@ -11,12 +11,13 @@ namespace PracticeWebApp.Models
     {
         #region Public Members
 
+        [Key]
         public int Id { get; set; }
 
         [Range(11, 11)] //TODO voir si plus propre
         public int Rpps { get; set; }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         #endregion
 

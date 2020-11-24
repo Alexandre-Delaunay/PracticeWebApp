@@ -10,8 +10,8 @@ namespace PracticeWebApp.Models
     public class Prescription
     {
         #region Public Members
-        public int Id { get; set; }
 
+        [Key]
         [MaxLength(8)]
         public string ReferenceMimosa { get; set; }
 

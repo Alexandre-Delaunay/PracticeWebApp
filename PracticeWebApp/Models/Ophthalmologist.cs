@@ -10,12 +10,14 @@ namespace PracticeWebApp.Models
     public class Ophthalmologist : IUser
     {
         #region Public Members
+
+        [Key]
         public int Id { get; set; }
 
         [Range(11, 11)]
         public int Adel { get; set; }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         #endregion
 
