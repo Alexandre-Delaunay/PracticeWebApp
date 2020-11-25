@@ -87,7 +87,7 @@ namespace PracticeWebApp.Controllers
         /// </summary>
         /// <param name="referenceMimosa"></param>
         /// <returns></returns>
-        [HttpGet("{referenceMimosa}")]
+        [HttpGet("getaudittrail/{referenceMimosa}")]
         public async Task<IActionResult> GetAuditTrail(string referenceMimosa)
         {
             try

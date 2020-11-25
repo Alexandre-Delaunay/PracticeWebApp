@@ -46,11 +46,8 @@ namespace PracticeWebApp.Services
         /// <param name="AskPrescritpionViewModel"></param>
         /// <returns></returns>
         public async Task<Prescription> AskPrescription(AskPrescriptionViewModel AskPrescritpionViewModel)
-        {
-            var random = new Random();
-            var index = random.Next(_dataContext.Prescriptions.ToList().Count);
-
-            return _dataContext.Prescriptions.ElementAt(index);
+        {           
+            return await Task.FromResult(_dataContext.Prescriptions.FirstOrDefault());
         }
 
         /// <summary>
@@ -61,7 +58,7 @@ namespace PracticeWebApp.Services
         /// 
         public async Task<Prescription> Get(string referenceMimosa)
         {
-            return await _dataContext.Prescriptions.FindAsync(referenceMimosa);
+            return await Task.FromResult(_dataContext.Prescriptions.FirstOrDefault(x => string.Equals(x.ReferenceMimosa, referenceMimosa, StringComparison.InvariantCulture)));
         }
 
         /// <summary>
@@ -71,9 +68,9 @@ namespace PracticeWebApp.Services
         /// <returns></returns>
         public async Task<string> GetAuditTrail(string referenceMimosa)
         {
-            var prescription = await _dataContext.Prescriptions.FindAsync(referenceMimosa);
+            var prescription = await Task.FromResult(_dataContext.Prescriptions.FirstOrDefault(x => string.Equals(x.ReferenceMimosa, referenceMimosa, StringComparison.InvariantCulture)));
 
-            return prescription != null ? "Random string" 
+            return prescription != null ? "Retour d'une chaîne à remplir ultérieurement" 
                                             : string.Empty;
         }
 

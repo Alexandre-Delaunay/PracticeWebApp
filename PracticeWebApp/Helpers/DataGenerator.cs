@@ -36,50 +36,53 @@ namespace PracticeWebApp.Helpers
         /// </summary>
         private void MockPrescritpions()
         {
+            //Clean in memory database
+            _dataContext.Database.EnsureDeleted();
+
             _dataContext.Prescriptions.AddRange(
 
                 new Prescription
                 {
-                    ReferenceMimosa = GetRandomString(8),
-                    EyeAmetropy = null,
-                    Ophthalmologist = null,
-                    Optician = null,
+                    ReferenceMimosa = "AHV548DF",
+                    //EyeAmetropy = null,
+                    //Ophthalmologist = null,
+                    //Optician = null,
                     Place = GetRandomPlace(),
                     Date = GetRandomDateTime(),
-                    Product = null
+                    //Product = null
                 },
 
                 new Prescription
                 {
-                    ReferenceMimosa = GetRandomString(8),
-                    EyeAmetropy = null,
-                    Ophthalmologist = null,
-                    Optician = null,
+                    ReferenceMimosa = "BG5V2D8H",
+                    //EyeAmetropy = null,
+                    //Ophthalmologist = null,
+                    //Optician = null,
                     Place = GetRandomPlace(),
                     Date = GetRandomDateTime(),
-                    Product = null
+                    //Product = null
                 },
 
                 new Prescription
                 {
-                    ReferenceMimosa = GetRandomString(8),
-                    EyeAmetropy = null,
-                    Ophthalmologist = null,
-                    Optician = null,
+                    ReferenceMimosa = "PN6985DF",
+                    //EyeAmetropy = null,
+                    //Ophthalmologist = null,
+                    //Optician = null,
                     Place = GetRandomPlace(),
                     Date = GetRandomDateTime(),
-                    Product = null
+                    //Product = null
                 },
 
                 new Prescription
                 {
-                    ReferenceMimosa = GetRandomString(8),
-                    EyeAmetropy = null,
-                    Ophthalmologist = null,
-                    Optician = null,
+                    ReferenceMimosa = "PVMNBD78Q",
+                    //EyeAmetropy = null,
+                    //Ophthalmologist = null,
+                    //Optician = null,
                     Place = GetRandomPlace(),
                     Date = GetRandomDateTime(),
-                    Product = null
+                    //Product = null
                 }
 
             );

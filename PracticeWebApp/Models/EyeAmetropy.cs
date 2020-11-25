@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,13 +12,16 @@ namespace PracticeWebApp.Models
     {
         #region Public Members
 
-        //TODO add annotations with regular expression
+        [Key]
+        public int Id { get; set; }
         public string Sphere { get; set; }
 
+        [NotMapped]
         public Tuple<string, string> Astigmatism { get; set; }
 
         public float Addition { get; set; }
 
+        [NotMapped]
         public Tuple<string, string> PrismPrescription { get; set; }
 
         public string Comment { get; set; }
