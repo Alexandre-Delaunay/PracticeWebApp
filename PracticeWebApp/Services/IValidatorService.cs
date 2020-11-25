@@ -17,5 +17,7 @@ namespace PracticeWebApp.Services
         public (bool success, string errorMessage) IsOpticianValid(Optician optician);
 
         public (bool success, string errorMessage) IsProductValid(Product product);
+
+        public (bool success, string errorMessage) IsReferenceMimosaValid(string referenceMimosa);
     }
 }

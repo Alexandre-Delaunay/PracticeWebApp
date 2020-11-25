@@ -9,7 +9,7 @@ namespace PracticeWebApp.Services
 {
     public interface IPrescriptionService
     {
-        public Task<Prescription> Get(int id);
+        public Task<Prescription> Get(string referenceMimosa);
 
         public Task<Prescription> AskPrescription(AskPrescriptionViewModel AskPrescritpionViewModel);
 

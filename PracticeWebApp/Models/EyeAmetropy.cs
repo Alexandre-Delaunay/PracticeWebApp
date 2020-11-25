@@ -13,11 +13,11 @@ namespace PracticeWebApp.Models
         //TODO add annotations with regular expression
         public string Sphere { get; set; }
 
-        public Dictionary<string, string> Astigmatism { get; set; }
+        public Tuple<string, string> Astigmatism { get; set; }
 
         public float Addition { get; set; }
 
-        public Dictionary<string, string>  PrismPrescription { get; set; }
+        public Tuple<string, string> PrismPrescription { get; set; }
 
         public string Comment { get; set; }
 

@@ -13,6 +13,7 @@ namespace PracticeWebApp.Services
         #region Private Members
 
         private readonly DataContext _dataContext;
+        private readonly IValidatorService _validatorService;
 
         #endregion
 
@@ -21,9 +22,12 @@ namespace PracticeWebApp.Services
         /// <summary>
         /// The constructor
         /// </summary>
-        public PrescriptionService(DataContext dataContext)
+        public PrescriptionService(DataContext dataContext, IValidatorService validatorService)
         {
             _dataContext = dataContext;
+            _validatorService = validatorService;
+
+            //TODO changed the way to generate random datas
             var dataGenerator = new DataGenerator(_dataContext);
             dataGenerator.Initialize();
         }
@@ -50,13 +54,14 @@ namespace PracticeWebApp.Services
         }
 
         /// <summary>
-        /// C’est la plus simple, on a une référence qui est l’identifiant d’une ordonnance, on envoi l’ordonnance correspondant à l’identifiant
+        /// C’est la plus simple, on a une référence qui est l’identifiant d’une ordonnance, on envoi la reference mimosa
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<Prescription> Get(int id)
+        /// 
+        public async Task<Prescription> Get(string referenceMimosa)
         {
-            return await _dataContext.Prescriptions.FindAsync(id);
+            return await _dataContext.Prescriptions.FindAsync(referenceMimosa);
         }
 
         /// <summary>

@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdelLengthInvalid" xml:space="preserve">
+    <value>Adel length  is not equals to 11</value>
+  </data>
+  <data name="CodeEdiIsNotUnique" xml:space="preserve">
+    <value>CodeEdi is not unique</value>
+  </data>
+  <data name="PrismPrescriptionInvalid" xml:space="preserve">
+    <value>PrismPrescritpion should not have a value because there is not changes in astigmatism</value>
+  </data>
   <data name="ReferenceMimosaInvalid" xml:space="preserve">
     <value>The mimosa reference is not valid</value>
+  </data>
+  <data name="RppsLengthInvalid" xml:space="preserve">
+    <value>Rpps length is not equals to 11</value>
+  </data>
+  <data name="SphereDecimalNumberInvalid" xml:space="preserve">
+    <value>The sphere decimal number is not valid</value>
+  </data>
+  <data name="SphereFirstCharInvalid" xml:space="preserve">
+    <value>The first character in sphere is not valid</value>
+  </data>
+  <data name="SphereIsNotDecimal" xml:space="preserve">
+    <value>Sphere is not a decimal</value>
   </data>
 </root>

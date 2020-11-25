@@ -61,11 +61,74 @@ namespace PracticeWebApp.Traductions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adel length  is not equals to 11.
+        /// </summary>
+        public static string AdelLengthInvalid {
+            get {
+                return ResourceManager.GetString("AdelLengthInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CodeEdi is not unique.
+        /// </summary>
+        public static string CodeEdiIsNotUnique {
+            get {
+                return ResourceManager.GetString("CodeEdiIsNotUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PrismPrescritpion should not have a value because there is not changes in astigmatism.
+        /// </summary>
+        public static string PrismPrescriptionInvalid {
+            get {
+                return ResourceManager.GetString("PrismPrescriptionInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The mimosa reference is not valid.
         /// </summary>
         public static string ReferenceMimosaInvalid {
             get {
                 return ResourceManager.GetString("ReferenceMimosaInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rpps length is not equals to 11.
+        /// </summary>
+        public static string RppsLengthInvalid {
+            get {
+                return ResourceManager.GetString("RppsLengthInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The sphere decimal number is not valid.
+        /// </summary>
+        public static string SphereDecimalNumberInvalid {
+            get {
+                return ResourceManager.GetString("SphereDecimalNumberInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first character in sphere is not valid.
+        /// </summary>
+        public static string SphereFirstCharInvalid {
+            get {
+                return ResourceManager.GetString("SphereFirstCharInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sphere is not a decimal.
+        /// </summary>
+        public static string SphereIsNotDecimal {
+            get {
+                return ResourceManager.GetString("SphereIsNotDecimal", resourceCulture);
             }
         }
     }
