@@ -40,8 +40,6 @@ namespace PracticeWebApp.Services
         /// On envoi une demande en paramètre de la méthode, c’est-à-dire, un objet JSON contenant, le nom, le prénom, 
         /// le numéro de téléphone et la réponse à une question secrète ainsi que le numéro de question à l’API qui va ensuite vérifier les données et renvoyer l’ordonnance. 
         /// Le retour est une ordonnance dans le cadre de cet exercice, en cas réel, nous aurions renvoyé l’ordonnance via un autre canal
-        ///
-        /// TODO voir pour remove task
         /// </summary>
         /// <param name="AskPrescritpionViewModel"></param>
         /// <returns></returns>

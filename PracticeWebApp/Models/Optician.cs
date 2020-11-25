@@ -13,8 +13,6 @@ namespace PracticeWebApp.Models
 
         [Key]
         public int Id { get; set; }
-
-        [Range(11, 11)] //TODO voir si plus propre
         public int Rpps { get; set; }
         public string Name { get; set; }
         public string FirstName { get; set; }

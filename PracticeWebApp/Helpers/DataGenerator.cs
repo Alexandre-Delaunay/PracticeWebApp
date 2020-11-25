@@ -13,7 +13,11 @@ namespace PracticeWebApp.Helpers
         private Random _random;
         #endregion
 
-        #region Constructor
+        #region Singleton        
+
+        #endregion
+
+            #region Constructor
         public DataGenerator(DataContext dataContext)
         {
             _dataContext = dataContext;
