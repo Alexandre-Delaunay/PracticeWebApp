@@ -10,10 +10,9 @@ namespace PracticeWebApp.ViewModels
     public class AskPrescriptionViewModel : IUser
     {
         #region Public Members
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")]
+        public string Name { get; set; }
+        public string FirstName { get; set; }
+        
         public string PhoneNumber { get; set; }
 
         public string Answer { get; set; }

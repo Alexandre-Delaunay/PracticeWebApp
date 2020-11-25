@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PracticeWebApp.Models;
 using PracticeWebApp.Traductions;
+using PracticeWebApp.ViewModels;
 
 namespace PracticeWebApp.Services
 {
@@ -19,27 +21,46 @@ namespace PracticeWebApp.Services
         /// <returns></returns>
         public (bool success, string errorMessage) IsEyeAmetropyValid(EyeAmetropy eyeAmetropy)
         {
+            bool success;
+            string errorMessage;
+
             //Verify Sphere property
-            if (!eyeAmetropy.Sphere.StartsWith("-") || !eyeAmetropy.Sphere.StartsWith("+"))
+            (success, errorMessage) = IsSphereValid(eyeAmetropy.Sphere);
+
+            //Verify PrismPrescription property
+            if(success)
+                (success, errorMessage) = IsPrismPrescritpionValid(eyeAmetropy.PrismPrescription, eyeAmetropy.Astigmatism);
+
+            return (success, errorMessage);
+        }
+
+        public (bool success, string errorMessage) IsSphereValid(string sphere)
+        {
+            //Verify if sphere start with negative or positive sign
+            if (!sphere.StartsWith("-") || !sphere.StartsWith("+"))
                 return (false, Errors.SphereFirstCharInvalid);
 
             //Verify if sphere can be cast as decimal
-            if (!decimal.TryParse(eyeAmetropy.Sphere, out decimal sphere))
+            if (!decimal.TryParse(sphere, out decimal sphereToDecimal))
                 return (false, Errors.SphereIsNotDecimal);
 
-            //Verify PrismPrescription property
-            if (MockAstigmatismHaveChanged()
-                && (string.IsNullOrEmpty(eyeAmetropy.PrismPrescription.Item1) || string.IsNullOrEmpty(eyeAmetropy.PrismPrescription.Item2)))
-                return (false, Errors.PrismPrescriptionInvalid);
-
             return (true, string.Empty);
+        }
+
+        public (bool success, string errorMessage) IsPrismPrescritpionValid(Tuple<string, string> prismPrescritpion, Tuple<string, string> astigmatism)
+        {
+            if (MockAstigmatismHaveChanged(astigmatism)
+             && (string.IsNullOrEmpty(prismPrescritpion.Item1) || string.IsNullOrEmpty(prismPrescritpion.Item2)))
+                return (false, Errors.PrismPrescriptionInvalid);
+            else
+                return (true, string.Empty);
         }
 
         /// <summary>
         /// Used to mock changes from astigmatism property
         /// </summary>
         /// <returns></returns>
-        private static bool MockAstigmatismHaveChanged() => true;
+        private static bool MockAstigmatismHaveChanged(Tuple<string, string> astigmatism) => true;
 
         #endregion
 
@@ -52,7 +73,12 @@ namespace PracticeWebApp.Services
         public (bool success, string errorMessage) IsOphthalmologistValid(Ophthalmologist ophthalmologist)
         {
             //Verify adel property length
-            if (ophthalmologist.Adel.ToString().Length == 11)
+            return IsAdelValid(ophthalmologist.Adel.ToString());
+        }
+
+        public (bool success, string errorMessage) IsAdelValid(string adel)
+        {
+            if (!string.IsNullOrEmpty(adel) && adel.Length == 11)
                 return (true, string.Empty);
             else
                 return (false, Errors.AdelLengthInvalid);
@@ -69,7 +95,12 @@ namespace PracticeWebApp.Services
         public (bool success, string errorMessage) IsOpticianValid(Optician optician)
         {
             //Verify rpps property length
-            if (optician.Rpps.ToString().Length == 11)
+            return IsRppsValid(optician.Rpps.ToString());
+        }
+
+        public (bool success, string errorMessage) IsRppsValid(string rpps)
+        {
+            if (!string.IsNullOrEmpty(rpps) && rpps.Length == 11)
                 return (true, string.Empty);
             else
                 return (false, Errors.RppsLengthInvalid);
@@ -85,10 +116,11 @@ namespace PracticeWebApp.Services
         /// <returns></returns>
         public (bool success, string errorMessage) IsPrescriptionValid(Prescription prescription)
         {
-            var success = true;
-            var errorMessage = string.Empty;
+            bool success;
+            string errorMessage;
 
-            //Verify mimosa reference            
+            //Verify mimosa reference       
+            (success, errorMessage) = IsReferenceMimosaValid(prescription.ReferenceMimosa);
 
             if (success && prescription.EyeAmetropy != null)
                 (success, errorMessage) = IsEyeAmetropyValid(prescription.EyeAmetropy);
@@ -112,10 +144,10 @@ namespace PracticeWebApp.Services
         /// <returns></returns>
         public (bool success, string errorMessage) IsReferenceMimosaValid(string referenceMimosa)
         {
-            if (referenceMimosa.Length != 8)
-                return (false, Errors.ReferenceMimosaInvalid);
-            else
+            if (!string.IsNullOrEmpty(referenceMimosa) && referenceMimosa.Length == 8)
                 return (true, string.Empty);
+            else
+                return (false, Errors.ReferenceMimosaInvalid);
         }
 
         #endregion
@@ -136,6 +168,37 @@ namespace PracticeWebApp.Services
         }
 
         private static bool CodeEdiIsUnique() => true;
+
+        #endregion
+
+        #region ViewModels Validators
+
+        public (bool success, string errorMessage) IsAskPrescriptionViewModelValid(AskPrescriptionViewModel askPrescriptionViewModel)
+        {
+            //Verify Name
+            if (!IsNameValid(askPrescriptionViewModel.Name))
+                return (false, Errors.NameInvalid);
+
+            //Verify First Name
+            if (!IsFirstNameValid(askPrescriptionViewModel.FirstName))
+                return (false, Errors.FirstNameInvalid);
+
+            //Verify Phone Number
+            if (!Regex.Match(askPrescriptionViewModel.PhoneNumber, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$").Success)
+                return (false, Errors.PhoneNumberInvalid);
+
+            //Verify Answer
+            if (!IsAnswerValid(askPrescriptionViewModel.QuestionNumber))
+                return (false, Errors.AnswerInvalid);
+
+            return (true, string.Empty);
+        }
+
+        private static bool IsAnswerValid(int questionNumber) => true;
+
+        private static bool IsNameValid(string name) => true;
+
+        private static bool IsFirstNameValid(string firstName) => true;
 
         #endregion
     }

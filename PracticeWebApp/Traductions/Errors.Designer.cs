@@ -70,11 +70,47 @@ namespace PracticeWebApp.Traductions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The answer is not valid.
+        /// </summary>
+        public static string AnswerInvalid {
+            get {
+                return ResourceManager.GetString("AnswerInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CodeEdi is not unique.
         /// </summary>
         public static string CodeEdiIsNotUnique {
             get {
                 return ResourceManager.GetString("CodeEdiIsNotUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The firstName is not valid.
+        /// </summary>
+        public static string FirstNameInvalid {
+            get {
+                return ResourceManager.GetString("FirstNameInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name is not valid.
+        /// </summary>
+        public static string NameInvalid {
+            get {
+                return ResourceManager.GetString("NameInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number is invalid.
+        /// </summary>
+        public static string PhoneNumberInvalid {
+            get {
+                return ResourceManager.GetString("PhoneNumberInvalid", resourceCulture);
             }
         }
         

@@ -64,11 +64,16 @@ namespace PracticeWebApp.Controllers
         /// </summary>
         /// <param name="askPrescriptionViewModel"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task<IActionResult> AskPrescription(AskPrescriptionViewModel askPrescriptionViewModel)
+        [HttpPost("AskPrescription")]
+        public async Task<IActionResult> AskPrescription([FromBody]AskPrescriptionViewModel askPrescriptionViewModel)
         {
             try
-            {                
+            {
+                (bool success, string errorMessage) = _validatorService.IsAskPrescriptionViewModelValid(askPrescriptionViewModel);
+
+                if(!success)
+                    return BadRequest(new { message = errorMessage });
+
                 return Ok(await _prescriptionService.AskPrescription(askPrescriptionViewModel));
             }
             catch (Exception ex)
