@@ -13,7 +13,7 @@ namespace PracticeWebApp.Models
 
         [Key]
         public int Id { get; set; }
-        public int Adel { get; set; }
+        public long Adel { get; set; }
         public string Name { get; set; }
         public string FirstName { get; set; }
 

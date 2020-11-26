@@ -48,12 +48,36 @@ namespace PracticeWebApp.Helpers
                 new Prescription
                 {
                     ReferenceMimosa = "AHV548DF",
-                    //EyeAmetropy = null,
-                    //Ophthalmologist = null,
-                    //Optician = null,
+
+                    EyeAmetropy = new EyeAmetropy()
+                    {
+                        Sphere = "-1.00",
+                        Astigmatism = new Tuple<string, string>("+1.00", "2.00"),
+                        Addition = 1.2563F,
+                        PrismPrescription = new Tuple<string, string>("+3.00", "1.75"),
+                        Comment = "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by."
+                    },
+
+                    Ophthalmologist = new Ophthalmologist() { 
+                        Adel = 13558478569,
+                        FirstName = "John",
+                        Name = "Doe"
+                    },
+
+                    Optician = new Optician() {
+                        Rpps = 16359842536,
+                        FirstName = "Robert",
+                        Name = "Laponce"
+                    },
+
                     Place = GetRandomPlace(),
                     Date = GetRandomDateTime(),
-                    //Product = null
+                    
+                    Product = new Product()
+                    {
+                        CodeEdi = "ABH-50542463",
+                        Comment = "Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share least. "
+                    }
                 },
 
                 new Prescription

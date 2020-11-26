@@ -26,6 +26,15 @@ namespace PracticeWebApp
             //Database connection
             services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("TestDatabase"));
 
+            //Enable any cors header
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
             //AutoMapper
             services.AddAutoMapper(typeof(Startup));
 
@@ -56,6 +65,8 @@ namespace PracticeWebApp
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
