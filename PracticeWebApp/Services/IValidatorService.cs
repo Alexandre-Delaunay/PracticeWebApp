@@ -20,7 +20,7 @@ namespace PracticeWebApp.Services
 
         public (bool success, string errorMessage) IsEyeAmetropyValid(EyeAmetropy eyeAmetropy);
         public (bool success, string errorMessage) IsSphereValid(string sphere);
-        public (bool success, string errorMessage) IsPrismPrescritpionValid(Tuple<string, string> prismPrescritpion, Tuple<string, string> astigmatism);
+        public (bool success, string errorMessage) IsPrismPrescritpionValid(string[] prismPrescritpion, string[] astigmatism);
 
         #endregion
 

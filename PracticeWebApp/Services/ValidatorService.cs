@@ -47,10 +47,10 @@ namespace PracticeWebApp.Services
             return (true, string.Empty);
         }
 
-        public (bool success, string errorMessage) IsPrismPrescritpionValid(Tuple<string, string> prismPrescritpion, Tuple<string, string> astigmatism)
+        public (bool success, string errorMessage) IsPrismPrescritpionValid(string[] prismPrescritpion, string[] astigmatism)
         {
             if (MockAstigmatismHaveChanged(astigmatism)
-             && (string.IsNullOrEmpty(prismPrescritpion.Item1) || string.IsNullOrEmpty(prismPrescritpion.Item2)))
+             && (string.IsNullOrEmpty(prismPrescritpion[0]) || string.IsNullOrEmpty(prismPrescritpion[1])))
                 return (false, Errors.PrismPrescriptionInvalid);
             else
                 return (true, string.Empty);
@@ -60,7 +60,7 @@ namespace PracticeWebApp.Services
         /// Used to mock changes from astigmatism property
         /// </summary>
         /// <returns></returns>
-        private static bool MockAstigmatismHaveChanged(Tuple<string, string> astigmatism) => true;
+        private static bool MockAstigmatismHaveChanged(string[] astigmatism) => true;
 
         #endregion
 

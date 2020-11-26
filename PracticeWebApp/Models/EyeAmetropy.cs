@@ -17,12 +17,12 @@ namespace PracticeWebApp.Models
         public string Sphere { get; set; }
 
         [NotMapped]
-        public Tuple<string, string> Astigmatism { get; set; }
+        public string[] Astigmatism { get; set; }
 
         public float Addition { get; set; }
 
         [NotMapped]
-        public Tuple<string, string> PrismPrescription { get; set; }
+        public string[] PrismPrescription { get; set; }
 
         public string Comment { get; set; }
 

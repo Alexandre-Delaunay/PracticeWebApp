@@ -52,9 +52,9 @@ namespace PracticeWebApp.Helpers
                     EyeAmetropy = new EyeAmetropy()
                     {
                         Sphere = "-1.00",
-                        Astigmatism = new Tuple<string, string>("+1.00", "2.00"),
+                        Astigmatism = new string[2] { "+1.00", "2.00" },
                         Addition = 1.2563F,
-                        PrismPrescription = new Tuple<string, string>("+3.00", "1.75"),
+                        PrismPrescription = new string[2] { "+3.00", "1.75" },
                         Comment = "One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by."
                     },
 
